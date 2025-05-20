@@ -52,9 +52,7 @@ public class Contact extends HttpServlet {
         if ("Yes".equals(YesorNo)) {
             out.println("<p>この度は資料請求いただきありがとうございます。"
                       + "以下のリンクから資料ダウンロードが可能です。</p>");
-            response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY); 
-    		//302(Found)		
-    		response.setHeader("Location", "https://html.spec.whatwg.org/");
+  
         }
 
         out.println("</body></html>");
