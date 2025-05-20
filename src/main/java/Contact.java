@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/ServletTest/jsp/contact")
+@WebServlet("/jsp/contact")
 public class Contact extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -19,7 +19,6 @@ public class Contact extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -53,6 +52,9 @@ public class Contact extends HttpServlet {
         if ("Yes".equals(YesorNo)) {
             out.println("<p>この度は資料請求いただきありがとうございます。"
                       + "以下のリンクから資料ダウンロードが可能です。</p>");
+            response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY); 
+    		//302(Found)		
+    		response.setHeader("Location", "https://html.spec.whatwg.org/");
         }
 
         out.println("</body></html>");
